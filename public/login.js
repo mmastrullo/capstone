@@ -30,7 +30,7 @@ function LoginForm(props){
   const [password, setPassword] = React.useState('');
 
   function handle(){
-    fetch('/account/login/${email}/${password}')
+    fetch(`/account/login/${email}/${password}`)
     .then(response => response.text())
     .then(text => {
         try {

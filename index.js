@@ -2,17 +2,19 @@ var express = require('express');
 var app     = express();
 var cors    = require('cors');
 var dal     = require('./dal.js');
+var babel = require('babel-polyfill');
 const e = require('express');
 //*****new from auth.js
-//const bodyParser = require('body-parser');
-//const jwt = require('jsonwebtoken');
-//const accessTokenSecret = 'somerandomaccesstoken';
-//app.use(bodyParser.json());
+/*const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
+const accessTokenSecret = 'somerandomaccesstoken';
+app.use(bodyParser.json());*/
 //const refreshTokenSecret = 'somerandomstringforrefreshtoken';
 
 // used to serve static files from public directory
 app.use(express.static('public'));
 app.use(cors());
+app.use(babel());
 
 // create user account
 app.get('/account/create/:name/:email/:password', function (req, res) {
